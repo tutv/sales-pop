@@ -2,7 +2,11 @@
 
 Demo: https://tutv.github.io/sales-pop/
 
-```
+### Installation
+
+Add script to your website:
+
+```html
 <script>
 var GE_MESSAGES = [
     {
