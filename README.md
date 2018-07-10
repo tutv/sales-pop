@@ -2,7 +2,7 @@
 
 Demo: https://tutv.github.io/sales-pop/
 
-### Installation
+## Installation
 
 Add script to your website:
 
