@@ -1,5 +1,7 @@
 # Sales pop
 
+Demo: https://tutv.github.io/sales-pop/
+
 ```
 <script>
 var GE_MESSAGES = [
