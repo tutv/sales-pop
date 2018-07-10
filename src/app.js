@@ -96,6 +96,7 @@ var APP = (function () {
         const options = Object.assign({}, {
             pauseDelayOnHover: true,
             continueDelayOnInactiveTab: false,
+            soundPath: 'https://tutv.github.io/sales-pop/src/sounds/'
         }, message);
 
         Lobibox.notify('info', options);
