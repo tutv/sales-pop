@@ -60,6 +60,7 @@ var GE = (function () {
 
 var APP = (function () {
     var i = 0;
+    var total = 0;
     const messages = window.GE_MESSAGES && Array.isArray(window.GE_MESSAGES) ? window.GE_MESSAGES : [];
     if (!messages || !messages.length) {
         return;
@@ -79,6 +80,7 @@ var APP = (function () {
         } else {
             i = 0;
         }
+        total++;
 
         var message = messages[i];
         if (!message) {
@@ -87,9 +89,11 @@ var APP = (function () {
 
         sendMessage(message);
 
+        const min = total > messages.length ? 10000 : 5000;
+        const max = min + 10000;
         setTimeout(function () {
             run();
-        }, GE.random(5000, 15000));
+        }, GE.random(min, max));
     }
 
     function sendMessage(message) {
