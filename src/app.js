@@ -101,7 +101,7 @@ var APP = (function () {
             pauseDelayOnHover: true,
             continueDelayOnInactiveTab: false,
             soundPath: 'https://tutv.github.io/sales-pop/src/sounds/',
-            delay: 10000
+            delay: 6000
         }, message);
 
         Lobibox.notify('info', options);
