@@ -61,5 +61,5 @@ var GE_MESSAGES = [
     },
 ];
 </script>
-<script src="https://tutv.github.io/sales-pop/src/app.js?v=1.0.0"></script>
+<script src="https://tutv.github.io/sales-pop/src/app.js?v=1.0.2"></script>
 ```
