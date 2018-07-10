@@ -89,7 +89,7 @@ var APP = (function () {
 
         setTimeout(function () {
             run();
-        }, GE.random(10000, 20000));
+        }, GE.random(5000, 15000));
     }
 
     function sendMessage(message) {
