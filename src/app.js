@@ -89,8 +89,8 @@ var APP = (function () {
 
         sendMessage(message);
 
-        const min = total > messages.length ? 10000 : 5000;
-        const max = min + 10000;
+        const min = total > messages.length ? 15000 : 10000;
+        const max = min + 5000;
         setTimeout(function () {
             run();
         }, GE.random(min, max));
@@ -100,7 +100,8 @@ var APP = (function () {
         const options = Object.assign({}, {
             pauseDelayOnHover: true,
             continueDelayOnInactiveTab: false,
-            soundPath: 'https://tutv.github.io/sales-pop/src/sounds/'
+            soundPath: 'https://tutv.github.io/sales-pop/src/sounds/',
+            delay: 10000
         }, message);
 
         Lobibox.notify('info', options);
