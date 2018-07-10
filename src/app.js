@@ -54,15 +54,18 @@ var GE = (function () {
 })();
 
 var APP = (function () {
-    Lobibox.notify('default', {
+    Lobibox.notify('info', {
         pauseDelayOnHover: true,
         continueDelayOnInactiveTab: false,
-        msg: 'Lorem ipsum dolor sit amet hears farmer indemnity inherent.'
+        title: 'Phụ Hương Khang',
+        msg: '<p>Chị Mai đến từ Nghệ An, vừa đặt mua</p><small>3 phút trước</small>',
+        img: './demo.png',
+        delay: false,
     });
 });
 
 function afterLobibox() {
-    GE.addStyle('https://tutv.github.io/sales-pop/src/lobibox.css');
+    GE.addStyle('https://tutv.github.io/sales-pop/src/lobibox.css?v=1');
     APP();
 }
 
