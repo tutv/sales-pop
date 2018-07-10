@@ -2,7 +2,12 @@ var GE = (function () {
     return {
         addScript: _addScript,
         addStyle: _addStyle,
+        random: _rand,
     };
+
+    function _rand(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
     function _addStyle(src, callback) {
         var head = document.head;
@@ -54,14 +59,69 @@ var GE = (function () {
 })();
 
 var APP = (function () {
-    Lobibox.notify('info', {
-        pauseDelayOnHover: true,
-        continueDelayOnInactiveTab: false,
-        title: 'Phụ Hương Khang',
-        msg: '<p>Chị Mai đến từ Nghệ An, vừa đặt mua</p><small>3 phút trước</small>',
-        img: './demo.png',
-        delay: false,
+    var i = 0;
+    const messages = window.GE_MESSAGES && Array.isArray(window.GE_MESSAGES) ? window.GE_MESSAGES : [];
+    if (!messages || !messages.length) {
+        return;
+    }
+
+    function _addEvent(obj, evt, fn) {
+        if (obj.addEventListener) {
+            obj.addEventListener(evt, fn, false);
+        } else if (obj.attachEvent) {
+            obj.attachEvent("on" + evt, fn);
+        }
+    }
+
+    function run() {
+        if (i < messages.length - 1) {
+            i++;
+        } else {
+            i = 0;
+        }
+
+        var message = messages[i];
+        if (!message) {
+            return;
+        }
+
+        sendMessage(message);
+
+        setTimeout(function () {
+            run();
+        }, GE.random(10000, 20000));
+    }
+
+    function sendMessage(message) {
+        const options = Object.assign({}, {
+            pauseDelayOnHover: true,
+            continueDelayOnInactiveTab: false,
+        }, message);
+
+        Lobibox.notify('info', options);
+    }
+
+    var trigger = false;
+    _addEvent(document, 'mouseout', function (e) {
+        if (trigger) {
+            return;
+        }
+
+        if (e.toElement === null && e.relatedTarget === null) {
+            setTimeout(function () {
+                trigger = true;
+                run();
+            }, 300);
+        }
     });
+
+    setTimeout(() => {
+        if (trigger) {
+            return;
+        }
+        trigger = true;
+        run();
+    }, 10000);
 });
 
 function afterLobibox() {
